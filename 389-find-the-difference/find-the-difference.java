@@ -1,29 +1,26 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        //Approach 2
-        int sum1=0;
+        //Approach 3 using xor
+        int xor=0;
         for(int i=0; i<s.length(); i++){
-            sum1+=s.charAt(i);
+            xor=xor^s.charAt(i);
+
         }
-        int sum2=0;
         for(int i=0; i<t.length(); i++){
-            sum2+=t.charAt(i);
+            xor=xor^t.charAt(i);
         }
-        return (char)(sum2-sum1);
+        return (char)xor;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //Approach 2
+        // int sum1=0;
+        // for(int i=0; i<s.length(); i++){
+        //     sum1+=s.charAt(i);
+        // }
+        // int sum2=0;
+        // for(int i=0; i<t.length(); i++){
+        //     sum2+=t.charAt(i);
+        // }
+        // return (char)(sum2-sum1);
 
         //Approach 1
         // HashMap<Character, Integer> mp=new HashMap<>();
