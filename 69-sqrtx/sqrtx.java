@@ -1,17 +1,16 @@
 class Solution {
     public int mySqrt(int x) {
-        int ans=1;
+        long ans=1;
         for(long i=0; i<=x; i++){
             if(i*i==x){
-                ans=(int)i;
-                return ans;
-            }else if(i*i<=x){
-                ans=(int)i;
+                return (int)i;
+            }else if(i*i<x){
+                ans=i;
             }else{
                 break;
             }
         }
-        return ans;
+        return (int)ans;
 
 
 
@@ -33,16 +32,6 @@ class Solution {
         // }
         // return (int)ans;
 
-        //linear search having a tc of O(N)
-        // int ans=1;
-        // for(int i=1; i<=x; i++){
-        //     if(i*i<=x){
-        //         ans=i;
-        //     }else{
-        //         break;
-        //     }
-        // }
-        // return ans;
         // return(int) Math.sqrt(x);
         
     }
