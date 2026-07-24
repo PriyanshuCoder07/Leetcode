@@ -1,19 +1,37 @@
 class Solution {
     public int mySqrt(int x) {
-        //Binary Search 
-        long low=1;
-        long high=x; 
-        long ans=0;
-        while(low<=high){
-            long mid=low+(high-low)/2;
-            if(mid*mid<=x){
-                ans=mid;
-                low=mid+1;
+        int ans=1;
+        for(long i=0; i<=x; i++){
+            if(i*i==x){
+                ans=(int)i;
+                return ans;
+            }else if(i*i<=x){
+                ans=(int)i;
             }else{
-                high=mid-1;
+                break;
             }
         }
-        return (int)ans;
+        return ans;
+
+
+
+
+
+
+        // //Binary Search 
+        // long low=1;
+        // long high=x; 
+        // long ans=0;
+        // while(low<=high){
+        //     long mid=low+(high-low)/2;
+        //     if(mid*mid<=x){
+        //         ans=mid;
+        //         low=mid+1;
+        //     }else{
+        //         high=mid-1;
+        //     }
+        // }
+        // return (int)ans;
 
         //linear search having a tc of O(N)
         // int ans=1;
