@@ -6,15 +6,11 @@ class Solution {
             arr.add(num);
             n/=10;
         }
-        int ans[]=new int[arr.size()];
-        for(int i=0; i<arr.size(); i++){
-            ans[i]=arr.get(i);
-        }
         int max=0;   
-        for(int i=0; i<ans.length; i++){
+        for(int i=0; i<arr.size(); i++){
             int num=0;
-            for(int j=i+1; j<ans.length; j++){
-                num=ans[i]*ans[j];
+            for(int j=i+1; j<arr.size(); j++){
+                num=arr.get(i)*arr.get(j);
                 max=Math.max(num,max);
             }
         }
