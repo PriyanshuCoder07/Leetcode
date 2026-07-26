@@ -7,9 +7,10 @@ class Solution {
             if(nums[i]<0) negcnt++;
         }
         if(negcnt==0 || negcnt==n) return nums[n-1]*nums[n-2]*nums[n-3];
-        else if(negcnt<=n-1 && (nums[0]*nums[1]>nums[n-2]*nums[n-3])){
-            return nums[0]*nums[1]*nums[n-1];
-        }    
+        return Math.max(nums[0]*nums[1],nums[n-2]*nums[n-3])*nums[n-1];
+        // else if(negcnt<=n-1 && (nums[0]*nums[1]>nums[n-2]*nums[n-3])){
+        //     return nums[0]*nums[1]*nums[n-1];
+        // }    
         // }else{
         //     if(n>=5 && negcnt%2==1){
         //         int num1=nums[0];
@@ -20,7 +21,7 @@ class Solution {
         //         if(num1*num2>num3*num4) return num1*num2*num5;
         //     }
         // }
-        return nums[n-1]*nums[n-2]*nums[n-3];
+        // return nums[n-1]*nums[n-2]*nums[n-3];
 
     }
 }
