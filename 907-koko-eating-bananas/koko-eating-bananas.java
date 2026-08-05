@@ -1,37 +1,72 @@
 class Solution {
-    public boolean isPossible(int[] piles, int n, int h){
-        long ans=0;
+    public long findSpeed(int a, int[] piles){
+        long speed=0;
         for(int i=0; i<piles.length; i++){
-            if(piles[i]<=n){
-                ans++;
-            }else{
-                if(piles[i]>n && piles[i]%n==0){
-                    ans+=piles[i]/n;
-                }else{
-                    ans+=(piles[i]/n)+1;
-                }
-            }
+            speed+=piles[i]/a;
+            if(piles[i]%a!=0) speed++;
         }
-        return ans<=h;
+        return speed;
     }
     public int minEatingSpeed(int[] piles, int h) {
-        int max=0;
+        //find the max first for the range
+        int max=0; 
         for(int i=0; i<piles.length; i++){
             max=Math.max(max,piles[i]);
         }
         int low=1;
         int high=max;
-        int eatingspeed=1;
+        int ans=1;
         while(low<=high){
             int mid=low+(high-low)/2;
-            if(isPossible(piles,mid,h)){
-                eatingspeed=mid;
+            long speed=findSpeed(mid,piles);
+            if(speed<=h){
+                ans=mid;
                 high=mid-1;
             }else{
                 low=mid+1;
             }
         }
-        return eatingspeed;
+        return ans;
+      
+
+
+
+
+
+
+    // public boolean isPossible(int[] piles, int n, int h){
+    //     long ans=0;
+    //     for(int i=0; i<piles.length; i++){
+    //         if(piles[i]<=n){
+    //             ans++;
+    //         }else{
+    //             if(piles[i]>n && piles[i]%n==0){
+    //                 ans+=piles[i]/n;
+    //             }else{
+    //                 ans+=(piles[i]/n)+1;
+    //             }
+    //         }
+    //     }
+    //     return ans<=h;
+    // }
+    // public int minEatingSpeed(int[] piles, int h) {
+    //     int max=0;
+    //     for(int i=0; i<piles.length; i++){
+    //         max=Math.max(max,piles[i]);
+    //     }
+    //     int low=1;
+    //     int high=max;
+    //     int eatingspeed=1;
+    //     while(low<=high){
+    //         int mid=low+(high-low)/2;
+    //         if(isPossible(piles,mid,h)){
+    //             eatingspeed=mid;
+    //             high=mid-1;
+    //         }else{
+    //             low=mid+1;
+    //         }
+    //     }
+    //     return eatingspeed;
         
     // public long solve(int[] piles,int speed){
     //     int n=piles.length;
