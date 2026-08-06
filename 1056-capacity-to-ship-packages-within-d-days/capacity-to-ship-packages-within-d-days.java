@@ -8,8 +8,9 @@ class Solution {
                 days++;
                 caps=0;
             }else if(caps>a){
-                int n=caps-weights[i];
-                caps-=n;
+                // int n=caps-weights[i];
+                // caps-=n;
+                caps=weights[i];
                 days++;
             }
         }
