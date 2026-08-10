@@ -4,10 +4,10 @@ class Solution {
        Arrays.fill(dp,-1);
        return solve(n,dp);
     }
-    public int solve(int a, int[] dp){
-        if(a<=1) return a;
-        if(dp[a]!=-1) return dp[a];
-        return dp[a]=solve(a-1,dp)+solve(a-2,dp);
+    public int solve(int n, int[] dp){
+        if(n<=1) return n;
+        if(dp[n]!=-1) return dp[n];
+        return dp[n]=solve(n-1,dp)+solve(n-2,dp);
     }
 
 
